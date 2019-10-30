@@ -1,0 +1,24 @@
+ilam=1e-3;                       % wavelength
+xs=[-7.5:.1:0]*1e-3;             % x field
+zs=[0:.5:(25/(ilam*1e3))]*1e-3; % z field
+y=0;
+frq=1e10;
+a=5e-3;
+b=7.5e-3;
+c=1540;
+tmax=1.2*(sqrt((z^2)+((2*a+max(abs(x))).^2)+((2*b+max(abs(y))).^2))./c);
+ps=zeros(length(xs),length(zs)); % pressure matrix initialization
+for n=1:length(zs)
+    n
+    for i=1:length(xs)
+        [h,t,ps(i,n)]=rectapp(xs(i),y,zs(n),ilam,tmax); % call pressure calculation fn
+    end
+end
+ps=ps./max(max(ps));    % normalize
+%% plot
+figure;
+mesh((zs.*1e3)./(25./(ilam.*1e3)),abs((xs.*1e3)./5),ps)
+xlabel('Depth (a^2/\lambda)')
+ylabel('Azimuth (a)')
+zlabel('Normalized Pressure')
+title('Circular Mesh for a/\lambda=5')
