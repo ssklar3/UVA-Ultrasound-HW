@@ -1,5 +1,5 @@
 function [h,t,p]=rectapp(x,y,z,lam,tmax)
-%% rectangular piston paramaters
+%% rectangular paramaters
 c=1540;                 % Speed of sound in body (m/s)
 a=5e-3;                 % short axis (m)
 b=7.5e-3;               % long axis (m)
