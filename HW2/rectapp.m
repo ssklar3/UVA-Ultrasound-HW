@@ -120,6 +120,7 @@ for i=1:4
 
     h=h+(hsq(i,:).*sign(i));
 end
+
 t=[tpre{i},toneset{i},tshort{i},tlong{i},tpost{i}];
 h=h./(2.*pi);
 %% pressure calc

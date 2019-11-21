@@ -20,6 +20,6 @@ for i=1:length(x)
     plot(t(i,:),h(i,:))
     xlabel('Time (s)')
     ylabel('h(x,t)/c')
-    axis([3.2e-5 3.8e-5 0 1.2])
+    axis([3.2e-5 3.5e-5 0 1.2])
     title(['x/a = ',num2str(x(i)/5e-3),'y/b = ',num2str(y(i)/7.5e-3)])
 end
